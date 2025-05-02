@@ -4,6 +4,9 @@ reading_file = file1.read()
 print(reading_file)
 file1.close()
 '''
+from fileinput import filename
+from random import sample
+
 '''
 with open('my_file.txt','r') as file1:
     reading_file = file1.read()
@@ -43,9 +46,25 @@ r_f = file.read()
 print(r_f)
 file.close()
 '''
-
+'''''
 file = open('sample.txt','r')
 reading_file = file.read()
 print(reading_file)
 file.close()
+'''''
+
+def read_file(sample):
+    try:
+        with open(sample, 'r') as file:
+            print("File content:")
+            for line in file:
+                print(line, end='')  # end='' to avoid extra newlines
+    except FileNotFoundError:
+        print(f"Error: The file '{sample}' does not exist.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+result = read_file(sample)
+print(result)
+
 
